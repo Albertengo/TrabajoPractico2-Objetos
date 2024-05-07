@@ -1,0 +1,12 @@
+Juego Conejito violento:
+- es violento
+- conejo ataca (MC)
+
+-- Enemigos:
+- Gallinas atacan. (patrullan)
+- vaca normal ataca y persigue al jugador.
+- vaca amarilla: jefe final. Tira proyectiles de zanahorias (puntiagudas).
+
+-- PowerUps:
+- flor o trigo es un boost de velocidad.
+- manzanas aumentan daño.
