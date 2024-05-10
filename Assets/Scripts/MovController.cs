@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class MovController : MonoBehaviour
 {
-    [SerializeField] protected float velocidad;
+    [SerializeField] public float velocidad;
     [SerializeField] protected Animator animator;
     [SerializeField] protected Transform pos;
     

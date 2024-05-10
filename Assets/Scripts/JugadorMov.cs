@@ -10,8 +10,8 @@ namespace Jugador
         //movimiento
         //public float velocidad;
         [SerializeField] public float velocidadBoost = 5;
-        private bool booster = false;
-        private float tiempoBooster = 3f;
+        //private bool booster = false;
+        //private float tiempoBooster = 3f;
 
         //animaciones
         //public Animator animator;
@@ -26,6 +26,8 @@ namespace Jugador
         #endregion
 
         #region code
+
+        /*
         private void OnTriggerEnter2D(Collider2D collision) //para boostear la velocidad del pj
         {
             if (collision.gameObject.CompareTag("Boost"))
@@ -46,6 +48,8 @@ namespace Jugador
             velocidad = 3;
             //Debug.Log("Terminó el Boost, velocidad: " + velocidad);
         }
+        */
+
 
         protected override void Movimiento(Transform pos)
         {
@@ -53,12 +57,14 @@ namespace Jugador
             float movimientovertical = Input.GetAxis("Vertical") * velocidad * Time.deltaTime;
             pos.Translate(movimientohorizontal, movimientovertical, 0);
 
+
             //animacion
-            Playermov = new Vector2(movimientohorizontal, movimientovertical).normalized; //.normalized para normalizar el num del vector
+            Playermov = new Vector2(movimientohorizontal, movimientovertical).normalized;
             animator.SetFloat("X", Playermov.x);
             animator.SetFloat("Y", Playermov.y);
             animator.SetFloat("Speed", Playermov.sqrMagnitude);
         }
+
 
         protected override void Attack(int daño)
         {
