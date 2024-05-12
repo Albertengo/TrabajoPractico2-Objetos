@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AplicarPowerUp : MonoBehaviour
 {
-    //[SerializeField] ParticleSystem particulas;
+    [SerializeField] public ParticleSystem particulas;
 
-    //[SerializeField] AudioSource audio;
+    [SerializeField] AudioSource audio;
 
 
     public PowerUp powerUp;
@@ -19,13 +19,14 @@ public class AplicarPowerUp : MonoBehaviour
         {
             StartCoroutine("temporizadorPowerUp");
 
-            //audio.Play();
-            //particulas.Play();
-            //Destroy(gameObject, 0.5f); //cuando el objeto se destruye deja de funcionar el temporizador
+            audio.Play();
+            particulas.Play();
+            Destroy(gameObject, 0.5f);
         }
     }
 
 
+    
     protected IEnumerator temporizadorPowerUp()
     {
         powerUp.efectoActivado = true;
@@ -36,7 +37,8 @@ public class AplicarPowerUp : MonoBehaviour
         powerUp.efectoActivado = false;
         powerUp.aplicar();
 
-        //particulas.Stop();
+       particulas.Stop();
     }
+    
 
 }

@@ -7,16 +7,9 @@ namespace Jugador
     public class JugadorMov : MovController
     {
         #region Variables
-        //movimiento
-        //public float velocidad;
-        [SerializeField] public float velocidadBoost = 5;
-        //private bool booster = false;
-        //private float tiempoBooster = 3f;
-
-        //animaciones
-        //public Animator animator;
         Vector2 Playermov;
         #endregion
+
 
         #region funciones basicas
         void Update()
@@ -25,37 +18,13 @@ namespace Jugador
         }
         #endregion
 
+
         #region code
-
-        /*
-        private void OnTriggerEnter2D(Collider2D collision) //para boostear la velocidad del pj
-        {
-            if (collision.gameObject.CompareTag("Boost"))
-            {
-                booster = true;
-                if (booster == true)
-                {
-                    velocidad = velocidadBoost;
-                    //Invoke("EndBoost", tiempoBooster);
-                    //Debug.Log("Boosteando, velocidad: " + velocidad);
-                }
-                collision.gameObject.SetActive(false);
-            }
-        }
-        void EndBoost()
-        {
-            booster = false;
-            velocidad = 3;
-            //Debug.Log("Terminó el Boost, velocidad: " + velocidad);
-        }
-        */
-
-
         protected override void Movimiento(Transform pos)
         {
-            float movimientohorizontal = Input.GetAxis("Horizontal") * velocidad * Time.deltaTime;
-            float movimientovertical = Input.GetAxis("Vertical") * velocidad * Time.deltaTime;
-            pos.Translate(movimientohorizontal, movimientovertical, 0);
+            float movimientohorizontal = Input.GetAxis("Horizontal");
+            float movimientovertical = Input.GetAxis("Vertical");
+            pos.Translate(Playermov * Time.deltaTime * velocidad);
 
 
             //animacion
