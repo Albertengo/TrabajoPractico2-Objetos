@@ -8,9 +8,13 @@ public class Enemy : MovController
     protected JugadorMov Jugador;
     protected override void Attack(int daño)
     {
-        throw new System.NotImplementedException();
+        //ataque x colision (default)
+        Jugador.Health = Jugador.Health - daño;
+        
+        //BOSS: + tirar zanahorias
+        //disparos();
     }
-
+    //void disparos() { }
     protected override void Movimiento(Transform pos)
     {
         //patrullaje
@@ -21,7 +25,8 @@ public class Enemy : MovController
     {
         if (collision.gameObject.CompareTag("Jugador"))
         {
-            RecibirDaño(Jugador.daño);
+            RecibirDaño(Jugador.daño); //cambiar desp en base a lo q pongamos en el ataque del jugador
+            Attack(daño);
         }
     }
 }

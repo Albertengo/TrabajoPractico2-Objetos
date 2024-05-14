@@ -6,7 +6,7 @@ using UnityEngine.Device;
 public abstract class MovController : MonoBehaviour
 {
     [Header("Lógica")]
-    [SerializeField] protected int Health;
+    [SerializeField] public int Health;
     [SerializeField] public float velocidad;
     [SerializeField] public int daño;
 
