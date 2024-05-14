@@ -5,8 +5,6 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D _bulletRB;
     [SerializeField] float speed;
 
-    //MovController balas;
-
 
     void Awake()
     {
