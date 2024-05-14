@@ -11,6 +11,7 @@ public class Enemy : MovController
 
     protected override void Movimiento(Transform pos)
     {
+        //patrullaje
         throw new System.NotImplementedException();
     }
 

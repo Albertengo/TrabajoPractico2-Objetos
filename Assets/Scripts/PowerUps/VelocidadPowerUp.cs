@@ -9,7 +9,11 @@ public class VelocidadPowerUp : PowerUp
         if (efectoActivado == true)
             jugador.GetComponent<MovController>().velocidad += valorAgregado;
         else
+        {
             jugador.GetComponent<MovController>().velocidad -= valorAgregado;
+            //Debug.Log("PowerUp cancelado");
+        }
+            
     }
 
 }

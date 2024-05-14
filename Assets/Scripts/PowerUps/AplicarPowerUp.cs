@@ -21,7 +21,8 @@ public class AplicarPowerUp : MonoBehaviour
 
             audio.Play();
             particulas.Play();
-            Destroy(gameObject, 0.5f);
+            Destroy(this.gameObject, 0.5f);
+            //other.gameObject.SetActive(false);
         }
     }
 
@@ -32,7 +33,7 @@ public class AplicarPowerUp : MonoBehaviour
         powerUp.efectoActivado = true;
         powerUp.aplicar();
 
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(2);
 
         powerUp.efectoActivado = false;
         powerUp.aplicar();
