@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Device;
 
 public abstract class MovController : MonoBehaviour
 {
+    [Header("Lógica")]
     [SerializeField] protected int Health;
-    [SerializeField] protected string Collision;
     [SerializeField] public float velocidad;
+    [SerializeField] public int daño;
+
+    [Header("Referencias")]
     [SerializeField] protected Animator animator;
     [SerializeField] protected Transform pos;
     
@@ -17,6 +21,7 @@ public abstract class MovController : MonoBehaviour
 
     protected virtual void RecibirDaño(int DañoRecibido)
     {
-        
+        Health -= DañoRecibido;
+       
     } 
 }

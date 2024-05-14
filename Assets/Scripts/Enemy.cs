@@ -1,9 +1,11 @@
+using Jugador;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MovController
 {
+    protected JugadorMov Jugador;
     protected override void Attack(int daño)
     {
         throw new System.NotImplementedException();
@@ -15,15 +17,11 @@ public class Enemy : MovController
         throw new System.NotImplementedException();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.gameObject.CompareTag("Jugador"))
+        {
+            RecibirDaño(Jugador.daño);
+        }
     }
 }
