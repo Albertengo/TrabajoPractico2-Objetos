@@ -34,7 +34,6 @@ namespace Jugador
             {
                 animator.SetFloat("X", Playermov.x);
                 animator.SetFloat("Y", Playermov.y);
-                animator.SetFloat("Speed", Playermov.sqrMagnitude);
                 animator.SetBool("IsWalking", true);
             }
             else
