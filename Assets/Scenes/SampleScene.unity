@@ -5113,6 +5113,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &582420408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 582420409}
+  - component: {fileID: 582420410}
+  m_Layer: 0
+  m_Name: SpawnBalas
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &582420409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582420408}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.066, y: -0.114, z: -0.0013674776}
+  m_LocalScale: {x: 0.16666667, y: 0.16666667, z: 0.16666667}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1190222671}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &582420410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582420408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 394b8b9eea90ab24a9f57bf7b7dfb07a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
+  velocidad: 0
+  "da\xF1o": 0
+  BalaPrefab: {fileID: 31002875597874017, guid: 32f08dad8b72cfd448db6ca2b672577d, type: 3}
+  spawn: {fileID: 582420409}
+  cantidadDeBalas: 0
+  animator: {fileID: 0}
+  pos: {fileID: 0}
+  cam: {fileID: 519420031}
+  disparo: 0
 --- !u!1 &767995687
 GameObject:
   m_ObjectHideFlags: 0
@@ -5324,6 +5378,9 @@ MonoBehaviour:
   Health: 10
   velocidad: 5
   "da\xF1o": 3
+  BalaPrefab: {fileID: 0}
+  spawn: {fileID: 0}
+  cantidadDeBalas: 0
   animator: {fileID: 1190222672}
   pos: {fileID: 1190222671}
 --- !u!212 &1190222670
@@ -5388,9 +5445,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.2678723, y: 6.2678723, z: 6.2678723}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 582420409}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1190222672
