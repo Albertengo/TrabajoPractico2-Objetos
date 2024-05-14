@@ -30,9 +30,15 @@ namespace Jugador
 
             //animacion
             Playermov = new Vector2(movimientohorizontal, movimientovertical).normalized;
-            animator.SetFloat("X", Playermov.x);
-            animator.SetFloat("Y", Playermov.y);
-            animator.SetFloat("Speed", Playermov.sqrMagnitude);
+            if (Playermov.x != 0 || Playermov.y != 0)
+            {
+                animator.SetFloat("X", Playermov.x);
+                animator.SetFloat("Y", Playermov.y);
+                animator.SetFloat("Speed", Playermov.sqrMagnitude);
+                animator.SetBool("IsWalking", true);
+            }
+            else
+                animator.SetBool("IsWalking", false);
         }
 
 
