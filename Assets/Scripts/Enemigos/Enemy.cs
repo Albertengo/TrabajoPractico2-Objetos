@@ -10,25 +10,27 @@ public class Enemy : MovController
 
     protected override void Atacar(int daño)
     {
+        //ataca cuando el jugador se acerca demasiado
         //ataque x colision (default)
         Jugador.Health = Jugador.Health - daño;
-        
-        //BOSS: + tirar zanahorias
-        //disparos();
+
+        Debug.Log(daño);
     }
-
-
-    //void disparos() { }
 
 
     protected override void Movimiento(Transform pos)
     {
-        //patrullaje
-        throw new System.NotImplementedException();
+        //Patrullaje
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void Perseguir()
+    {
+        // Lógica para seguir al jugador
+    }
+
+
+    protected void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Jugador")) // cambiar para que pierda vida cuando colisiona con las hachas del jugador
         {
