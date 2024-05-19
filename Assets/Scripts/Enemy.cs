@@ -6,7 +6,9 @@ using UnityEngine;
 public class Enemy : MovController
 {
     protected JugadorMov Jugador;
-    protected override void Attack(int daño)
+
+
+    protected override void Atacar(int daño)
     {
         //ataque x colision (default)
         Jugador.Health = Jugador.Health - daño;
@@ -14,19 +16,24 @@ public class Enemy : MovController
         //BOSS: + tirar zanahorias
         //disparos();
     }
+
+
     //void disparos() { }
+
+
     protected override void Movimiento(Transform pos)
     {
         //patrullaje
         throw new System.NotImplementedException();
     }
 
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Jugador"))
+        if (collision.gameObject.CompareTag("Jugador")) // cambiar para que pierda vida cuando colisiona con las hachas del jugador
         {
-            RecibirDaño(Jugador.daño); //cambiar desp en base a lo q pongamos en el ataque del jugador
-            Attack(daño);
+            RecibirDaño(Jugador.daño);
+            Atacar(daño);
         }
     }
 }

@@ -23,9 +23,11 @@ public abstract class MovController : MonoBehaviour
     [SerializeField] protected Transform pos;
     
 
+
     protected abstract void Movimiento(Transform pos);
 
-    protected virtual void Attack(int daño)
+
+    protected virtual void Atacar(int daño)
     {
 
     }
@@ -38,7 +40,6 @@ public abstract class MovController : MonoBehaviour
     }
 
  
-
     protected virtual void RecibirDaño(int DañoRecibido)
     {
         Health -= DañoRecibido;

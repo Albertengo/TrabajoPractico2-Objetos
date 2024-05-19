@@ -7,12 +7,19 @@ public class DisparoJugador : MovController
     [Header("CAMARA")]
     [SerializeField] Camera cam;
 
+    [Header("DISPARAR")]
     [SerializeField] bool disparo;
+
 
 
     private void Start()
     {
         disparo = true;
+    }
+
+    void Update()
+    {
+        Movimiento(spawn);
     }
 
 
@@ -32,14 +39,6 @@ public class DisparoJugador : MovController
             StartCoroutine(TiempoParaDisparar());
 
     }
-
-
-
-    void Update()
-    {
-        Movimiento(spawn);
-    }
-
 
 
     public virtual IEnumerator TiempoParaDisparar()
