@@ -6,20 +6,32 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI puntaje;
-    int puntos;
+    [SerializeField] TextMeshProUGUI puntajeTexto;
+    int cantidadDePuntos;
 
-
-    public void actualizarPuntos(int puntosGanados)
-    {
-        puntos = puntos + puntosGanados;
-
-        puntaje.text = puntos.ToString();
-
-    }
 
     public void CambiarEscena(int escena)
     {
         SceneManager.LoadScene(escena);
+    }
+
+
+    // EVENTOS //
+
+    void ActualizarPuntaje(int ValorDePunto)
+    {
+        cantidadDePuntos += ValorDePunto;
+
+        puntajeTexto.text = "Puntaje: " + cantidadDePuntos;
+    }
+
+    private void OnEnable()
+    {
+        Coleccionable.Punto += ActualizarPuntaje;
+    }
+
+    private void OnDisable()
+    {
+        Coleccionable.Punto -= ActualizarPuntaje;
     }
 }

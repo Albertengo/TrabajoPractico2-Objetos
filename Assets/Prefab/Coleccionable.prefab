@@ -133,5 +133,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3747855beb3b2be44b2a2ce51c80deaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actualizarPuntaje: {fileID: 4226438476005354814, guid: 549186562e094be41bca99e65d7e21e1, type: 3}
-  cantidadDePuntos: 1
+  ValorDePunto: 1
+  audio: {fileID: 0}
