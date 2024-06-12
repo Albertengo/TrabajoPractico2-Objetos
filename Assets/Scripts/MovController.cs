@@ -24,7 +24,7 @@ public abstract class MovController : MonoBehaviour
     
 
 
-    protected abstract void Movimiento(Transform pos);
+    protected abstract void Movimiento(/*Transform pos*/);
 
 
     protected virtual void Atacar(int daño)

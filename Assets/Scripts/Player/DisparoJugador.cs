@@ -19,11 +19,11 @@ public class DisparoJugador : MovController
 
     void Update()
     {
-        Movimiento(spawn);
+        Movimiento(/*spawn*/);
     }
 
 
-    protected override void Movimiento(Transform pos)
+    protected override void Movimiento(/*Transform pos*/)
     {
         // Las coordenadas del mouse ahora se ajustan a la cámara
         Vector2 mouseWorldPoint = cam.ScreenToWorldPoint(Input.mousePosition);

@@ -15,17 +15,17 @@ namespace Jugador
         #region funciones basicas
         void Update()
         {
-            Movimiento(pos);
+            Movimiento(/*pos*/);
         }
         #endregion
 
 
         #region code
-        protected override void Movimiento(Transform pos)
+        protected override void Movimiento(/*Transform pos*/)
         {
             float movimientohorizontal = Input.GetAxis("Horizontal");
             float movimientovertical = Input.GetAxis("Vertical");
-            pos.Translate(Playermov * Time.deltaTime * velocidad);
+            transform.Translate(Playermov * Time.deltaTime * velocidad);
 
 
             //animacion

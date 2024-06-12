@@ -15,10 +15,11 @@ public class Enemy : MovController
     [Header("Patrullaje")]
     [SerializeField] protected Transform[] puntosDeMovimiento;
     [SerializeField] protected float distaciaMinima;
+    [SerializeField] protected float rangoDeDeteccion;
     protected int numeroAleatorio;
 
 
-    private void Awake()
+    protected void Awake()
     {
         agente = GetComponent<NavMeshAgent>();
 
@@ -31,27 +32,35 @@ public class Enemy : MovController
         numeroAleatorio = Random.Range(0, puntosDeMovimiento.Length);
     }
 
+    protected void Update()
+    {
+        Movimiento(/*pos*/);
+    }
+
 
     protected override void Atacar(int daño)
     {
         //ataca cuando el jugador se acerca demasiado
         //ataque x colision (default)
-        Jugador.Health = Jugador.Health - daño;
+        //Jugador.Health = Jugador.Health - daño;
 
-        Debug.Log(daño);
+        //Debug.Log(daño);
     }
 
 
-    protected override void Movimiento(Transform pos)
+    protected override void Movimiento(/*Transform pos*/)
     {
         //Patrullaje
 
-        //Se mueve hacia un punto
-        transform.position = Vector2.MoveTowards(transform.position, puntosDeMovimiento[numeroAleatorio].position, velocidad * Time.deltaTime);
+        if (Vector2.Distance(objetivo.position, transform.position) < rangoDeDeteccion)
+            Perseguir();
+        else 
+        {
+            agente.SetDestination(puntosDeMovimiento[numeroAleatorio].position);
 
-        //Si llega al punto anterior, busca una nuevo
-        if (Vector2.Distance(transform.position, puntosDeMovimiento[numeroAleatorio].position) < distaciaMinima)
-            numeroAleatorio = Random.Range(0, puntosDeMovimiento.Length);
+            if (Vector2.Distance(transform.position, puntosDeMovimiento[numeroAleatorio].position) <= distaciaMinima)
+                numeroAleatorio = Random.Range(0, puntosDeMovimiento.Length);
+        }
     }
 
 

@@ -10,9 +10,9 @@ public class Jefe : Enemy
     }
 
 
-    protected override void Movimiento(Transform pos)
+    protected override void Movimiento(/*Transform pos*/)
     {
-        base.Movimiento(pos);
+        base.Movimiento(/*pos*/);
         base.Perseguir();
     }
 
