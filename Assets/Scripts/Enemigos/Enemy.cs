@@ -51,6 +51,7 @@ public class Enemy : MovController
     protected override void Movimiento(/*Transform pos*/)
     {
         //Patrullaje
+        //sript para girar el sprite del enemigo
 
         if (Vector2.Distance(objetivo.position, transform.position) < rangoDeDeteccion)
             Perseguir();
@@ -73,7 +74,7 @@ public class Enemy : MovController
 
     protected void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Jugador")) // cambiar para que pierda vida cuando colisiona con las hachas del jugador
+        if (collision.gameObject.CompareTag("Hacha"))
         {
             RecibirDaño(Jugador.daño);
             Atacar(daño);

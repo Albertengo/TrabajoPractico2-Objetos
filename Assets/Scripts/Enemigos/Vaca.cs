@@ -5,7 +5,7 @@ using UnityEngine;
 public class Vaca : Enemy
 {
 
-    protected override void Perseguir()
+    protected override void Movimiento()
     {
         base.Perseguir();
     }

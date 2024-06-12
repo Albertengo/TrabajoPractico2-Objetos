@@ -10,6 +10,7 @@ public class Gallina : Enemy
     }
     
 
+
     protected override void Atacar(int daño)
     {
         base.Atacar(daño);

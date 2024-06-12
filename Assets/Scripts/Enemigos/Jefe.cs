@@ -4,9 +4,20 @@ using UnityEngine;
 
 public class Jefe : Enemy
 {
+    public delegate void ActivarPantallaParaGanar();
+    public static ActivarPantallaParaGanar activarPantallaParaGanar;
+
+
+
     void Start()
     {
         Atacar(4);
+    }
+
+    private void Update()
+    {
+        if (Health == 0)
+            activarPantallaParaGanar?.Invoke();
     }
 
 
@@ -25,15 +36,4 @@ public class Jefe : Enemy
     {
         base.Atacar(daño);
     }
-
-
-
-    void ganar()
-    {
-        if (Health <= 0) 
-        {
-            Debug.Log("GANASTEEEEEE!!!!!!");
-        }
-    }
-
 }
