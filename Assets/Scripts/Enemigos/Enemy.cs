@@ -90,7 +90,7 @@ public class Enemy : MovController
 
             switch (nombreDeObjetoColision)
             { 
-                case "Hacha": Debug.Log("Recibi daño"); /*RecibirDaño(Jugador.daño);*/
+                case "Hacha": RecibirDaño(objetivo.GetComponent<MovController>().daño);
                     break;
 
                 case "Jugador": Atacar(daño);
