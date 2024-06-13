@@ -12,11 +12,16 @@ public class Enemy : MovController
     [SerializeField] protected Transform objetivo;
     [SerializeField] protected NavMeshAgent agente;
 
+    [SerializeField] protected float rangoDeDeteccion;
+
+    [SerializeField] protected string nombreDeObjetoColision;
+
     [Header("Patrullaje")]
     [SerializeField] protected Transform[] puntosDeMovimiento;
     [SerializeField] protected float distaciaMinima;
-    [SerializeField] protected float rangoDeDeteccion;
     protected int numeroAleatorio;
+
+
 
 
     protected void Awake()
@@ -34,28 +39,42 @@ public class Enemy : MovController
 
     protected void Update()
     {
-        Movimiento(/*pos*/);
+        Movimiento();
     }
 
 
     protected override void Atacar(int daño)
     {
+        objetivo.GetComponent<MovController>().Health -= daño;
+
+
+        Debug.Log("Ataque");
+
         //ataca cuando el jugador se acerca demasiado
         //ataque x colision (default)
         //Jugador.Health = Jugador.Health - daño;
 
-        //Debug.Log(daño);
+
     }
 
 
-    protected override void Movimiento(/*Transform pos*/)
+    protected override void Movimiento()
     {
-        //Patrullaje
-        //sript para girar el sprite del enemigo
-
         if (Vector2.Distance(objetivo.position, transform.position) < rangoDeDeteccion)
             Perseguir();
-        else 
+    }
+
+
+    protected virtual void Perseguir()
+    {
+        agente.SetDestination(objetivo.position);
+    }
+
+    protected virtual void Patrullaje()
+    {
+        //sript para girar el sprite del enemigo
+
+        if (Vector2.Distance(objetivo.position, transform.position) > rangoDeDeteccion)
         {
             agente.SetDestination(puntosDeMovimiento[numeroAleatorio].position);
 
@@ -65,19 +84,17 @@ public class Enemy : MovController
     }
 
 
-    protected virtual void Perseguir()
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
-        if (objetivo != null)
-            agente.SetDestination(objetivo.position);
-    }
+       nombreDeObjetoColision = collision.gameObject.tag;
 
+            switch (nombreDeObjetoColision)
+            { 
+                case "Hacha": Debug.Log("Recibi daño"); /*RecibirDaño(Jugador.daño);*/
+                    break;
 
-    protected void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Hacha"))
-        {
-            RecibirDaño(Jugador.daño);
-            Atacar(daño);
-        }
+                case "Jugador": Atacar(daño);
+                    break;
+            }
     }
 }
