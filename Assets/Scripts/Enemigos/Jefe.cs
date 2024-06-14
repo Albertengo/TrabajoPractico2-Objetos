@@ -8,13 +8,7 @@ public class Jefe : Enemy
     public static ActivarPantallaParaGanar activarPantallaParaGanar;
 
 
-
-    void Start()
-    {
-        Atacar(4);
-    }
-
-    private void Update()
+    protected override void RecibirDaño(int DañoRecibido)
     {
         if (Health == 0)
             activarPantallaParaGanar?.Invoke();
@@ -30,10 +24,5 @@ public class Jefe : Enemy
     protected override void Disparar()
     {
         base.Disparar();
-    }
-
-    protected override void Atacar(int daño)
-    {
-        base.Atacar(daño);
     }
 }

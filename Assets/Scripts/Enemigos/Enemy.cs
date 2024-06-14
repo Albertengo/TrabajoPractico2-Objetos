@@ -1,9 +1,6 @@
 using Jugador;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : MovController
 {
@@ -19,7 +16,12 @@ public class Enemy : MovController
     [Header("Patrullaje")]
     [SerializeField] protected Transform[] puntosDeMovimiento;
     [SerializeField] protected float distaciaMinima;
-    protected int numeroAleatorio;
+    [HideInInspector] protected int numeroAleatorio;
+
+    [Header("COLECCIONABLES")]
+    [SerializeField] protected GameObject recolectableRandom;
+    [SerializeField] protected GameObject[] recolectable;
+    [HideInInspector] protected int numeroAleatorioRecolectable;
 
 
 
@@ -46,15 +48,7 @@ public class Enemy : MovController
     protected override void Atacar(int daño)
     {
         objetivo.GetComponent<MovController>().Health -= daño;
-
-
         Debug.Log("Ataque");
-
-        //ataca cuando el jugador se acerca demasiado
-        //ataque x colision (default)
-        //Jugador.Health = Jugador.Health - daño;
-
-
     }
 
 
@@ -63,7 +57,6 @@ public class Enemy : MovController
         if (Vector2.Distance(objetivo.position, transform.position) < rangoDeDeteccion)
             Perseguir();
     }
-
 
     protected virtual void Perseguir()
     {
@@ -81,6 +74,23 @@ public class Enemy : MovController
             if (Vector2.Distance(transform.position, puntosDeMovimiento[numeroAleatorio].position) <= distaciaMinima)
                 numeroAleatorio = Random.Range(0, puntosDeMovimiento.Length);
         }
+    }
+
+    protected override void RecibirDaño(int DañoRecibido)
+    {
+        base.RecibirDaño(DañoRecibido);
+
+        if (Health == 0)
+        {
+            numeroAleatorioRecolectable = Random.Range(0, recolectable.Length);
+            recolectableRandom = recolectable[numeroAleatorioRecolectable];
+
+            Instantiate(recolectableRandom, transform.position, Quaternion.identity);
+
+            Destroy(gameObject);
+        }
+        
+        // si la vida del enemigo es 0, destruye el enemigo y suelta un punto o power up
     }
 
 
