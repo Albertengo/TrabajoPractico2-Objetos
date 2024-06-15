@@ -42,13 +42,13 @@ namespace Jugador
 
 
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.CompareTag("Jugador"))
+            if (collision.gameObject.CompareTag("BalaEnemiga"))
             {
                 RecibirDaño(Enemigo.daño);
 
-                if (Health < 0)
+                if (vida <= 0)
                 {
                     Debug.Log("MORISTE!!!!!!!!!!!!!!!");
                 }

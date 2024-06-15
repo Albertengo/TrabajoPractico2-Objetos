@@ -5,7 +5,7 @@ using UnityEngine;
 public class DisparoJugador : MovController
 {
     [Header("CAMARA")]
-    [SerializeField] Camera cam;
+    [SerializeField] Camera camara;
 
     [Header("DISPARAR")]
     [SerializeField] bool disparo;
@@ -19,14 +19,14 @@ public class DisparoJugador : MovController
 
     void Update()
     {
-        Movimiento(/*spawn*/);
+        Movimiento();
     }
 
 
-    protected override void Movimiento(/*Transform pos*/)
+    protected override void Movimiento()
     {
         // Las coordenadas del mouse ahora se ajustan a la cámara
-        Vector2 mouseWorldPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mouseWorldPoint = camara.ScreenToWorldPoint(Input.mousePosition);
 
         //Calcula la dirección desde la posición del jugador hasta el ratón.
         Vector2 direction = mouseWorldPoint - (Vector2)transform.position;
@@ -43,7 +43,7 @@ public class DisparoJugador : MovController
 
     public virtual IEnumerator TiempoParaDisparar()
     {
-        base.Disparar();
+        base.Disparar(BalaPrefab, spawn, transform.up);
         disparo = false;
 
         yield return new WaitForSeconds(1);

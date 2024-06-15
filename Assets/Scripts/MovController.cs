@@ -7,42 +7,40 @@ using UnityEngine.Device;
 public abstract class MovController : MonoBehaviour
 {
     [Header("Lógica")]
-    [SerializeField] public int Health;
+    [SerializeField] public float vida;
     [SerializeField] public float velocidad;
-    [SerializeField] public int daño;
+    [SerializeField] public float daño;
 
     [Header("SPAWN DE BALAS")]
-    [SerializeField] protected Bullet BalaPrefab;
+    [SerializeField] protected Bala BalaPrefab;
     [SerializeField] protected Transform spawn;
     [SerializeField] public int cantidadDeBalas = 0;
-    //[SerializeField] protected float fireRate;
-    //[SerializeField] protected float timeToFire;
+
 
     [Header("Referencias")]
     [SerializeField] protected Animator animator;
-    [SerializeField] protected Transform pos;
     
 
 
     protected abstract void Movimiento(/*Transform pos*/);
 
 
-    protected virtual void Atacar(int daño)
+    protected virtual void Atacar(float daño)
     {
 
     }
 
 
-    protected virtual void Disparar()
+    protected virtual void Disparar(Bala balaPrefab, Transform posicionDeDisparo, Vector2 direccionDeDisparo)
     {
-        Bullet projectile = Instantiate(BalaPrefab, spawn.position, transform.rotation);
-        projectile.LaunchBullet(transform.up);
+        Bala projectile = Instantiate(balaPrefab, posicionDeDisparo.position, transform.rotation);
+        projectile.LaunchBullet(direccionDeDisparo); //transform.up
     }
 
  
-    protected virtual void RecibirDaño(int DañoRecibido)
+    protected virtual void RecibirDaño(float DañoRecibido)
     {
-        Health -= DañoRecibido;
+        vida -= DañoRecibido;
        
     } 
 }

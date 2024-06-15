@@ -21,7 +21,7 @@ public class Gallina : Enemy
         base.Patrullaje();
     }
 
-    protected override void Atacar(int daño)
+    protected override void Atacar(float daño)
     {
         base.Atacar(daño);
     }

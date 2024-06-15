@@ -1,21 +1,21 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bala : MonoBehaviour
 {
-    private Rigidbody2D _bulletRB;
-    [SerializeField] float speed;
+    private Rigidbody2D _balaRB;
+    [SerializeField] float velocidadDeProyectil;
 
 
     void Awake()
     {
-        _bulletRB = GetComponent<Rigidbody2D>();
+        _balaRB = GetComponent<Rigidbody2D>();
     }
 
     
 
     public void LaunchBullet(Vector2 direction)
     {
-        _bulletRB.velocity = direction * speed;
+        _balaRB.velocity = direction * velocidadDeProyectil;
 
         Destroy(gameObject, 3f);
     }

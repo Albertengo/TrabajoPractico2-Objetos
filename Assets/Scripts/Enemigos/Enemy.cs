@@ -6,7 +6,7 @@ public class Enemy : MovController
 {
     protected JugadorMov Jugador;
 
-    [SerializeField] protected Transform objetivo;
+    [SerializeField] protected Transform jugador;
     [SerializeField] protected NavMeshAgent agente;
 
     [SerializeField] protected float rangoDeDeteccion;
@@ -33,7 +33,7 @@ public class Enemy : MovController
         agente.updateRotation = false;
         agente.updateUpAxis = false;
 
-        objetivo = GameObject.FindGameObjectWithTag("Jugador").transform;
+        jugador = GameObject.FindGameObjectWithTag("Jugador").transform;
 
         // PANTRULLAJE //
         numeroAleatorio = Random.Range(0, puntosDeMovimiento.Length);
@@ -45,29 +45,28 @@ public class Enemy : MovController
     }
 
 
-    protected override void Atacar(int daño)
+    protected override void Atacar(float daño)
     {
-        objetivo.GetComponent<MovController>().Health -= daño;
+        jugador.GetComponent<MovController>().vida -= daño;
         Debug.Log("Ataque");
     }
 
-
     protected override void Movimiento()
     {
-        if (Vector2.Distance(objetivo.position, transform.position) < rangoDeDeteccion)
+        if (Vector2.Distance(jugador.position, transform.position) < rangoDeDeteccion && jugador != null)
             Perseguir();
     }
 
     protected virtual void Perseguir()
     {
-        agente.SetDestination(objetivo.position);
+        agente.SetDestination(jugador.position);
     }
 
     protected virtual void Patrullaje()
     {
         //sript para girar el sprite del enemigo
 
-        if (Vector2.Distance(objetivo.position, transform.position) > rangoDeDeteccion)
+        if (Vector2.Distance(jugador.position, transform.position) > rangoDeDeteccion)
         {
             agente.SetDestination(puntosDeMovimiento[numeroAleatorio].position);
 
@@ -76,11 +75,11 @@ public class Enemy : MovController
         }
     }
 
-    protected override void RecibirDaño(int DañoRecibido)
+    protected override void RecibirDaño(float DañoRecibido)
     {
         base.RecibirDaño(DañoRecibido);
 
-        if (Health == 0)
+        if (vida == 0)
         {
             numeroAleatorioRecolectable = Random.Range(0, recolectable.Length);
             recolectableRandom = recolectable[numeroAleatorioRecolectable];
@@ -89,8 +88,6 @@ public class Enemy : MovController
 
             Destroy(gameObject);
         }
-        
-        // si la vida del enemigo es 0, destruye el enemigo y suelta un punto o power up
     }
 
 
@@ -100,7 +97,7 @@ public class Enemy : MovController
 
             switch (nombreDeObjetoColision)
             { 
-                case "Hacha": RecibirDaño(objetivo.GetComponent<MovController>().daño);
+                case "Hacha": RecibirDaño(jugador.GetComponent<MovController>().daño);
                     break;
 
                 case "Jugador": Atacar(daño);

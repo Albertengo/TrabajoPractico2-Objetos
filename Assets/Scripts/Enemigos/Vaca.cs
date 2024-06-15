@@ -11,7 +11,7 @@ public class Vaca : Enemy
     }
     */
 
-    protected override void Atacar(int daño)
+    protected override void Atacar(float daño)
     {
         base.Atacar(daño);
     }

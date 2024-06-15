@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Jefe : Enemy
 {
@@ -8,21 +10,22 @@ public class Jefe : Enemy
     public static ActivarPantallaParaGanar activarPantallaParaGanar;
 
 
-    protected override void RecibirDaño(int DañoRecibido)
+    protected override void RecibirDaño(float DañoRecibido)
     {
-        if (Health == 0)
+        if (vida == 0)
             activarPantallaParaGanar?.Invoke();
     }
 
 
-    protected override void Movimiento(/*Transform pos*/)
+    protected override void Movimiento()
     {
-        base.Movimiento(/*pos*/);
-        base.Perseguir();
+        base.Movimiento();
     }
 
-    protected override void Disparar()
+    /*
+    protected override void Disparar(Bullet balaPrefab, Transform posicionDeDisparo, Vector2 direccionDeDisparo)
     {
-        base.Disparar();
+        base.Disparar(BalaPrefab, spawn, transform.up);
     }
+    */
 }
