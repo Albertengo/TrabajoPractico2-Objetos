@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DañoPowerUp : PowerUp
 {
-    public override void aplicar()
+    protected override void aplicar()
     {
         if (efectoActivado == true)
             jugador.GetComponent<MovController>().daño += valorAgregado;

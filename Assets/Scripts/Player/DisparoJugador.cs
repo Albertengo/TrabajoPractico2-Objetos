@@ -20,7 +20,9 @@ public class DisparoJugador : MovController
     void Update()
     {
         Movimiento();
+        Atacar(daño);
     }
+
 
 
     protected override void Movimiento()
@@ -33,13 +35,13 @@ public class DisparoJugador : MovController
 
         // apunta hacia el mouse
         transform.up = direction;
-
-
-        if (Input.GetMouseButtonDown(0) && disparo == true)
-            StartCoroutine(TiempoParaDisparar());
-
     }
 
+    protected override void Atacar(float daño)
+    {
+        if (Input.GetMouseButtonDown(0) && disparo == true)
+            StartCoroutine(TiempoParaDisparar());
+    }
 
     public virtual IEnumerator TiempoParaDisparar()
     {
@@ -50,5 +52,4 @@ public class DisparoJugador : MovController
 
         disparo = true;
     }
-
 }

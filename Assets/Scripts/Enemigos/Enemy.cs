@@ -2,7 +2,7 @@ using Jugador;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MovController
+public class Enemy : MovController, IRecibirDaño
 {
     protected JugadorMov Jugador;
 
@@ -12,6 +12,8 @@ public class Enemy : MovController
     [SerializeField] protected float rangoDeDeteccion;
 
     [SerializeField] protected string nombreDeObjetoColision;
+
+    protected MovController JugadorScript;
 
     [Header("Patrullaje")]
     [SerializeField] protected Transform[] puntosDeMovimiento;
@@ -75,9 +77,27 @@ public class Enemy : MovController
         }
     }
 
+    /*
     protected override void RecibirDaño(float DañoRecibido)
     {
         base.RecibirDaño(DañoRecibido);
+
+        if (vida == 0)
+        {
+            numeroAleatorioRecolectable = Random.Range(0, recolectable.Length);
+            recolectableRandom = recolectable[numeroAleatorioRecolectable];
+
+            Instantiate(recolectableRandom, transform.position, Quaternion.identity);
+
+            Destroy(gameObject);
+        }
+    }
+    */
+
+
+    public void TomarDaño()
+    {
+        vida -= daño; /*JugadorScript.daño;*/ //CAMBIAR POR DAÑO DE JUGADOR
 
         if (vida == 0)
         {
@@ -97,7 +117,7 @@ public class Enemy : MovController
 
             switch (nombreDeObjetoColision)
             { 
-                case "Hacha": RecibirDaño(jugador.GetComponent<MovController>().daño);
+                case "Hacha": TomarDaño();  /*RecibirDaño(jugador.GetComponent<MovController>().daño);*/
                     break;
 
                 case "Jugador": Atacar(daño);

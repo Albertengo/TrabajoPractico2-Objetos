@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Jugador
 {
-    public class JugadorMov : MovController
+    public class JugadorMov : MovController, IRecibirDaño
     {
         #region Variables
         Vector2 Playermov;
@@ -21,14 +21,15 @@ namespace Jugador
 
 
         #region code
-        protected override void Movimiento(/*Transform pos*/)
+        protected override void Movimiento()
         {
             float movimientohorizontal = Input.GetAxis("Horizontal");
             float movimientovertical = Input.GetAxis("Vertical");
-            transform.Translate(Playermov * Time.deltaTime * velocidad);
+
+            transform.Translate(Playermov * Time.deltaTime * velocidad, Space.World);
 
 
-            //animacion
+            // ANIMACION
             Playermov = new Vector2(movimientohorizontal, movimientovertical).normalized;
             if (Playermov.x != 0 || Playermov.y != 0)
             {
@@ -41,18 +42,20 @@ namespace Jugador
         }
 
 
+        public void TomarDaño()
+        {
+            vida -= daño /*Enemigo.daño*/; //CAMBIAR POR DAÑO DE ENEMIGO
+            
+            if (vida <= 0)
+            {
+                Debug.Log("MORISTE!!!!!!!!!!!!!!!");
+            }
+        }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.CompareTag("BalaEnemiga"))
-            {
-                RecibirDaño(Enemigo.daño);
-
-                if (vida <= 0)
-                {
-                    Debug.Log("MORISTE!!!!!!!!!!!!!!!");
-                }
-            }
+            if(collision.gameObject.CompareTag("Enemigo") /*|| collision.gameObject.CompareTag("BalaEnemiga")*/)
+                TomarDaño();
         }
         #endregion
     }

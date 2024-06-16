@@ -13,27 +13,26 @@ public abstract class PowerUp : MonoBehaviour
     [SerializeField] protected Collider2D collider;
 
     [SerializeField] public ParticleSystem particulas;
-
     [SerializeField] AudioSource audio;
 
 
-    private void Start()
+    protected void Start()
     {
         jugador = GameObject.FindGameObjectWithTag("Jugador");
     }
 
 
-    public abstract void aplicar();
+    protected abstract void aplicar();
 
-    /*
-    protected virtual void aplicarpowerup2(float atributo)
+    
+    protected virtual void aplicarpowerup2(float atributo, float ValorAgregado, bool estadoDeEfecto)
     {
-        if (efectoActivado == true)
-            atributo += valorAgregado;
+        if (estadoDeEfecto == true)
+            atributo += ValorAgregado;
         else
-            atributo -= valorAgregado;
+            atributo -= ValorAgregado;
     }
-    */
+    
 
     protected IEnumerator temporizadorPowerUp()
     {

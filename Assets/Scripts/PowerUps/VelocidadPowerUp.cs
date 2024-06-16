@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class VelocidadPowerUp : PowerUp
 {
-    public override void aplicar()
+    protected override void aplicar()
     {
-        //base.aplicarpowerup2(jugador.GetComponent<MovController>().velocidad);
 
+        
+        base.aplicarpowerup2(jugador.GetComponent<MovController>().velocidad, valorAgregado, efectoActivado);
 
+        /*
         if (efectoActivado == true)
             jugador.GetComponent<MovController>().velocidad += valorAgregado;
         else
             jugador.GetComponent<MovController>().velocidad -= valorAgregado;  
+        */
     }
 }

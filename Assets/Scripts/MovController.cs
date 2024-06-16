@@ -5,8 +5,9 @@ using UnityEngine;
 using UnityEngine.Device;
 
 public abstract class MovController : MonoBehaviour
+
 {
-    [Header("Lógica")]
+    [Header("Lógica")] //aplicar get y set
     [SerializeField] public float vida;
     [SerializeField] public float velocidad;
     [SerializeField] public float daño;
@@ -14,7 +15,6 @@ public abstract class MovController : MonoBehaviour
     [Header("SPAWN DE BALAS")]
     [SerializeField] protected Bala BalaPrefab;
     [SerializeField] protected Transform spawn;
-    [SerializeField] public int cantidadDeBalas = 0;
 
 
     [Header("Referencias")]
@@ -22,14 +22,9 @@ public abstract class MovController : MonoBehaviour
     
 
 
-    protected abstract void Movimiento(/*Transform pos*/);
+    protected abstract void Movimiento();
 
-
-    protected virtual void Atacar(float daño)
-    {
-
-    }
-
+    protected virtual void Atacar(float daño) { }
 
     protected virtual void Disparar(Bala balaPrefab, Transform posicionDeDisparo, Vector2 direccionDeDisparo)
     {
@@ -37,10 +32,8 @@ public abstract class MovController : MonoBehaviour
         projectile.LaunchBullet(direccionDeDisparo); //transform.up
     }
 
- 
     protected virtual void RecibirDaño(float DañoRecibido)
     {
-        vida -= DañoRecibido;
-       
-    } 
+        vida -= daño;
+    }
 }

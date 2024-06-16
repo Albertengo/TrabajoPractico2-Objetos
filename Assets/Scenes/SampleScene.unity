@@ -5292,7 +5292,6 @@ MonoBehaviour:
   "da\xF1o": 0
   BalaPrefab: {fileID: 31002875597874017, guid: 32f08dad8b72cfd448db6ca2b672577d, type: 3}
   spawn: {fileID: 582420409}
-  cantidadDeBalas: 0
   animator: {fileID: 0}
   camara: {fileID: 519420031}
   disparo: 0
@@ -5756,7 +5755,6 @@ MonoBehaviour:
   "da\xF1o": 3
   BalaPrefab: {fileID: 31002875597874017, guid: 32f08dad8b72cfd448db6ca2b672577d, type: 3}
   spawn: {fileID: 582420409}
-  cantidadDeBalas: 0
   animator: {fileID: 1190222672}
 --- !u!212 &1190222670
 SpriteRenderer:
@@ -5907,7 +5905,7 @@ GameObject:
   - component: {fileID: 1419612055}
   m_Layer: 0
   m_Name: Gallina
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6018,7 +6016,6 @@ MonoBehaviour:
   "da\xF1o": 0
   BalaPrefab: {fileID: 0}
   spawn: {fileID: 0}
-  cantidadDeBalas: 0
   animator: {fileID: 0}
   jugador: {fileID: 0}
   agente: {fileID: 1419612050}
@@ -6643,7 +6640,7 @@ GameObject:
   - component: {fileID: 1841269013}
   m_Layer: 0
   m_Name: Vaca
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6665,7 +6662,6 @@ MonoBehaviour:
   "da\xF1o": 1
   BalaPrefab: {fileID: 0}
   spawn: {fileID: 0}
-  cantidadDeBalas: 0
   animator: {fileID: 0}
   jugador: {fileID: 0}
   agente: {fileID: 1841269015}
@@ -6919,6 +6915,10 @@ PrefabInstance:
       propertyPath: particulas
       value: 
       objectReference: {fileID: 283346098}
+    - target: {fileID: 398166193627557076, guid: dc52a65b9d70312428af75e3a7a8fd51, type: 3}
+      propertyPath: valorAgregado
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 398166193627557076, guid: dc52a65b9d70312428af75e3a7a8fd51, type: 3}
       propertyPath: spriteRenderer
       value: 
