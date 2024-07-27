@@ -2,7 +2,7 @@ using Jugador;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MovController, IRecibirDaño
+public abstract class Enemy : MovController, IRecibirDaño
 {
     protected JugadorMov Jugador;
 
@@ -49,7 +49,7 @@ public class Enemy : MovController, IRecibirDaño
 
     protected override void Atacar(float daño)
     {
-        jugador.GetComponent<MovController>().vida -= daño;
+        JugadorScript.vida -= daño;
         Debug.Log("Ataque");
     }
 
@@ -117,8 +117,8 @@ public class Enemy : MovController, IRecibirDaño
 
             switch (nombreDeObjetoColision)
             { 
-                case "Hacha": TomarDaño();  /*RecibirDaño(jugador.GetComponent<MovController>().daño);*/
-                    break;
+                case "Hacha": TomarDaño();  /*RecibirDaño(JugadorScript.daño);*/
+                break;
 
                 case "Jugador": Atacar(daño);
                     break;
