@@ -4,6 +4,6 @@ using UnityEngine;
 
 	public interface IRecibirDaño
 	{
-		void TomarDaño();
+		void TomarDaño(float daño);
 	}
 

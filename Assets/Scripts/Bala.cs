@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bala : MonoBehaviour
+public class Bala : VidaYAtaque
 {
     private Rigidbody2D _balaRB;
     [SerializeField] float velocidadDeProyectil;

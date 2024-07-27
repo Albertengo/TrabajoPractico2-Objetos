@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VidaJugador : MonoBehaviour
+public class VidaJugador : VidaYAtaque, IRecibirDaño
 {
-    // Start is called before the first frame update
-    void Start()
+    public void TomarDaño(float daño)
     {
-        
-    }
+        Debug.Log("Daño recibido: " + daño);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        vida -= daño;
+
+        if (vida <= 0)
+        {
+            Debug.Log("MORISTE!!!!!!!!!!!!!!!"); // ACTIVAR PANTALLA DE DERROTA
+        }
     }
 }

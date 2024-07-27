@@ -7,6 +7,7 @@ TagManager:
   - Jugador
   - Hacha
   - Enemigo
+  - SinTag
   layers:
   - Default
   - TransparentFX

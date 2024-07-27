@@ -9,13 +9,13 @@ public class Jefe : Enemy
     public delegate void ActivarPantallaParaGanar();
     public static ActivarPantallaParaGanar activarPantallaParaGanar;
 
-
+    /*
     protected override void RecibirDaño(float DañoRecibido)
     {
         if (vida == 0)
             activarPantallaParaGanar?.Invoke();
     }
-
+    */
 
     protected override void Movimiento()
     {

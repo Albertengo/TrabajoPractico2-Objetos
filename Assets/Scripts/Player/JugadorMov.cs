@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Jugador
 {
-    public class JugadorMov : MovController, IRecibirDaño
+    public class JugadorMov : MovController
     {
         #region Variables
         Vector2 Playermov;
@@ -15,7 +15,7 @@ namespace Jugador
         #region funciones basicas
         void Update()
         {
-            Movimiento(/*pos*/);
+            Movimiento();
         }
         #endregion
 
@@ -26,11 +26,13 @@ namespace Jugador
             float movimientohorizontal = Input.GetAxis("Horizontal");
             float movimientovertical = Input.GetAxis("Vertical");
 
-            transform.Translate(Playermov * Time.deltaTime * velocidad, Space.World);
+            Playermov = new Vector2(movimientohorizontal, movimientovertical).normalized;
 
+            transform.Translate(Playermov * Time.deltaTime * velocidad, Space.World);
+            
 
             // ANIMACION
-            Playermov = new Vector2(movimientohorizontal, movimientovertical).normalized;
+
             if (Playermov.x != 0 || Playermov.y != 0)
             {
                 animator.SetFloat("X", Playermov.x);
@@ -39,23 +41,6 @@ namespace Jugador
             }
             else
                 animator.SetBool("IsWalking", false);
-        }
-
-
-        public void TomarDaño()
-        {
-            vida -= daño /*Enemigo.daño*/; //CAMBIAR POR DAÑO DE ENEMIGO
-            
-            if (vida <= 0)
-            {
-                Debug.Log("MORISTE!!!!!!!!!!!!!!!");
-            }
-        }
-
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if(collision.gameObject.CompareTag("Enemigo") /*|| collision.gameObject.CompareTag("BalaEnemiga")*/)
-                TomarDaño();
         }
         #endregion
     }

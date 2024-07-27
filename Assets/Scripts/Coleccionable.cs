@@ -17,7 +17,7 @@ public class Coleccionable : MonoBehaviour
         {
             Punto?.Invoke(ValorDePunto);
 
-            audio.Play();
+            //audio.Play();
             Destroy(gameObject, 0.3f);
         }
     }

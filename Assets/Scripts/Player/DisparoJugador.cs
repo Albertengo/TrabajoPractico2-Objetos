@@ -8,19 +8,19 @@ public class DisparoJugador : MovController
     [SerializeField] Camera camara;
 
     [Header("DISPARAR")]
-    [SerializeField] bool disparo;
+    [SerializeField] bool puedeDisparar;
 
 
 
     private void Start()
     {
-        disparo = true;
+        puedeDisparar = true;
     }
 
     void Update()
     {
         Movimiento();
-        Atacar(daño);
+        Disparar();
     }
 
 
@@ -37,19 +37,19 @@ public class DisparoJugador : MovController
         transform.up = direction;
     }
 
-    protected override void Atacar(float daño)
+    private void Disparar()
     {
-        if (Input.GetMouseButtonDown(0) && disparo == true)
+        if (Input.GetMouseButtonDown(0) && puedeDisparar == true)
             StartCoroutine(TiempoParaDisparar());
     }
 
     public virtual IEnumerator TiempoParaDisparar()
     {
         base.Disparar(BalaPrefab, spawn, transform.up);
-        disparo = false;
+        puedeDisparar = false;
 
         yield return new WaitForSeconds(1);
 
-        disparo = true;
+        puedeDisparar = true;
     }
 }
