@@ -6,9 +6,9 @@ public class VidaEnemigo : VidaYAtaque, IRecibirDaño
 {
     [Header("DROP ENEMIGO")]
 
-    [SerializeField] protected GameObject recolectableRandom;
     [SerializeField] protected GameObject[] recolectable;
-    [HideInInspector] protected int numeroAleatorioRecolectable;
+    protected GameObject recolectableRandom;
+    protected int numeroAleatorioRecolectable;
 
 
 

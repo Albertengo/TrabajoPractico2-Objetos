@@ -1,3 +1,4 @@
+using Jugador;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class VelocidadPowerUp : PowerUp
     {
 
         
-        base.aplicarpowerup2(jugador.GetComponent<MovController>().velocidad, valorAgregado, efectoActivado);
+        base.aplicarpowerup2(jugador.GetComponent<JugadorMov>().velocidad, valorAgregado, efectoActivado);
 
         /*
         if (efectoActivado == true)

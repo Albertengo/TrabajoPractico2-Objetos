@@ -2,7 +2,7 @@ using Jugador;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class Enemy : MovController/*, IRecibirDaño*/
+public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] protected Transform jugador;
 
@@ -37,7 +37,7 @@ public abstract class Enemy : MovController/*, IRecibirDaño*/
     }
 
 
-    protected override void Movimiento()
+    protected virtual void Movimiento()
     {
         if (Vector2.Distance(jugador.position, transform.position) < rangoDeDeteccion && jugador != null)
             Perseguir();
@@ -48,6 +48,7 @@ public abstract class Enemy : MovController/*, IRecibirDaño*/
     {
         agente.SetDestination(jugador.position);
     }
+
 
 
     protected virtual void Patrullaje()

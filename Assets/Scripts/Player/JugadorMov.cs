@@ -4,11 +4,15 @@ using UnityEngine;
 
 namespace Jugador
 {
-    public class JugadorMov : MovController
+    public class JugadorMov : MonoBehaviour
     {
         #region Variables
         Vector2 Playermov;
-        protected Enemy Enemigo;
+
+        [Header("Referencias")]
+        [SerializeField] protected Animator animator;
+        [SerializeField] public float velocidad;
+
         #endregion
 
 
@@ -21,7 +25,7 @@ namespace Jugador
 
 
         #region code
-        protected override void Movimiento()
+        private void Movimiento()
         {
             float movimientohorizontal = Input.GetAxis("Horizontal");
             float movimientovertical = Input.GetAxis("Vertical");

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
-public class DisparoJugador : MovController
+public class DisparoJugador : Disparo
 {
     [Header("CAMARA")]
     [SerializeField] Camera camara;
@@ -19,13 +19,13 @@ public class DisparoJugador : MovController
 
     void Update()
     {
-        Movimiento();
+        DireccionDeDisparo();
         Disparar();
     }
 
 
-
-    protected override void Movimiento()
+    //direccion de disparo en base al mouse
+    private void DireccionDeDisparo()
     {
         // Las coordenadas del mouse ahora se ajustan a la cámara
         Vector2 mouseWorldPoint = camara.ScreenToWorldPoint(Input.mousePosition);
