@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class PowerUp : MonoBehaviour
 {
     [SerializeField] protected GameObject jugador;
-    [SerializeField] protected float valorAgregado;
+    [SerializeField] protected int valorAgregado;
     [SerializeField] public bool efectoActivado;
 
     [SerializeField] protected SpriteRenderer spriteRenderer;
@@ -25,7 +25,7 @@ public abstract class PowerUp : MonoBehaviour
     protected abstract void aplicar();
 
     
-    protected virtual void aplicarpowerup2(float atributo, float ValorAgregado, bool estadoDeEfecto)
+    protected virtual void aplicarpowerup2(float atributo, int ValorAgregado, bool estadoDeEfecto)
     {
         if (estadoDeEfecto == true)
             atributo += ValorAgregado;

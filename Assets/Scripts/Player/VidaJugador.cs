@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class VidaJugador : VidaYAtaque, IRecibirDaño
 {
-    public void TomarDaño(float daño)
+    public GameManager gameManager;
+
+    public void TomarDaño(int daño)
     {
-        Debug.Log("Daño recibido: " + daño);
-
-        vida -= daño;
-
-        if (vida <= 0)
+        if (vida > 0)
         {
-            Debug.Log("MORISTE!!!!!!!!!!!!!!!"); // ACTIVAR PANTALLA DE DERROTA
+            vida -= daño;
+            gameManager.CambiarCorazon(vida);
         }
+        else
+            Debug.Log("MORISTE!!!!!!!!!!!!!!!"); // ACTIVAR PANTALLA DE DERROTA
     }
 }

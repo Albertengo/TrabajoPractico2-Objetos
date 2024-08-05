@@ -5,8 +5,8 @@ using UnityEngine;
 public abstract class VidaYAtaque : MonoBehaviour
 {
     //Get Y set
-    [SerializeField] public float vida;
-    [SerializeField] public float daño;
+    [SerializeField] public int vida;
+    [SerializeField] public int daño;
 
     [Header("OBJETIVO DE ATAQUE")]
     [SerializeField] protected string tagObjetivoDeAtaque;

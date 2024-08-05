@@ -12,7 +12,7 @@ public class VidaEnemigo : VidaYAtaque, IRecibirDaño
 
 
 
-    public void TomarDaño(float daño)
+    public void TomarDaño(int daño)
     {
         vida -= daño;
 
