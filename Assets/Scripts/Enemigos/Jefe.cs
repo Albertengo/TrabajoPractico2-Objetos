@@ -6,26 +6,19 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Jefe : Enemy
 {
-    public delegate void ActivarPantallaParaGanar();
-    public static ActivarPantallaParaGanar activarPantallaParaGanar;
+    [SerializeField] private float rotateSpeed = 0.1f;
 
-    /*
-    protected override void RecibirDaño(float DañoRecibido)
-    {
-        if (vida == 0)
-            activarPantallaParaGanar?.Invoke();
-    }
-    */
 
-    protected override void Movimiento()
+    new void Update()
     {
-        base.Movimiento();
-    }
+        if (Vector2.Distance(jugador.position, transform.position) <= rangoDeDeteccion)
+        {
+            Vector2 direccionDeDisparo = jugador.position - transform.position;
 
-    /*
-    protected override void Disparar(Bullet balaPrefab, Transform posicionDeDisparo, Vector2 direccionDeDisparo)
-    {
-        base.Disparar(BalaPrefab, spawn, transform.up);
+            agente.SetDestination(transform.position);
+            gameObject.GetComponent<DisparoJefe>().DisparoDeJefe(direccionDeDisparo);
+        } 
+        else
+            Perseguir();
     }
-    */
 }

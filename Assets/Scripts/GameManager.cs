@@ -34,12 +34,12 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         Coleccionable.Punto += ActualizarPuntaje;
-        Jefe.activarPantallaParaGanar += Ganar;
+       // Jefe.activarPantallaParaGanar += Ganar;
     }
 
     private void OnDisable()
     {
         Coleccionable.Punto -= ActualizarPuntaje;
-        Jefe.activarPantallaParaGanar -= Ganar;
+       // Jefe.activarPantallaParaGanar -= Ganar;
     }
 }

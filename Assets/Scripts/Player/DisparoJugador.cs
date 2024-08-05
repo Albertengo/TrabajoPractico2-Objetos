@@ -7,24 +7,16 @@ public class DisparoJugador : Disparo
     [Header("CAMARA")]
     [SerializeField] Camera camara;
 
-    [Header("DISPARAR")]
-    [SerializeField] bool puedeDisparar;
 
-
-
-    private void Start()
-    {
-        puedeDisparar = true;
-    }
 
     void Update()
     {
         DireccionDeDisparo();
-        Disparar();
+        DispararJugador();
     }
 
 
-    //direccion de disparo en base al mouse
+
     private void DireccionDeDisparo()
     {
         // Las coordenadas del mouse ahora se ajustan a la cámara
@@ -37,19 +29,9 @@ public class DisparoJugador : Disparo
         transform.up = direction;
     }
 
-    private void Disparar()
+    private void DispararJugador()
     {
         if (Input.GetMouseButtonDown(0) && puedeDisparar == true)
-            StartCoroutine(TiempoParaDisparar());
-    }
-
-    public virtual IEnumerator TiempoParaDisparar()
-    {
-        base.Disparar(BalaPrefab, spawn, transform.up);
-        puedeDisparar = false;
-
-        yield return new WaitForSeconds(1);
-
-        puedeDisparar = true;
+            StartCoroutine(base.TiempoParaDisparar(transform.up));
     }
 }
