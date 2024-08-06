@@ -8,10 +8,11 @@ public class VidaJugador : VidaYAtaque, IRecibirDaño
 
     public void TomarDaño(int daño)
     {
-        if (vida > 0)
+        if (Vida > 0)
         {
-            vida -= daño;
-            gameManager.CambiarCorazon(vida);
+            Vida -= daño;
+            gameManager.CambiarCorazon(Vida);
+            //Animacion de recibir daño
         }
         else
             Debug.Log("MORISTE!!!!!!!!!!!!!!!"); // ACTIVAR PANTALLA DE DERROTA

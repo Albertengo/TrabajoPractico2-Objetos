@@ -4,9 +4,12 @@ using UnityEngine;
 
 public abstract class VidaYAtaque : MonoBehaviour
 {
-    //Get Y set
-    [SerializeField] public int vida;
-    [SerializeField] public int daño;
+    [Header("VIDA Y DAÑO")]
+    [SerializeField] private int vida;
+    [SerializeField] private int daño;
+
+    public int Vida { get => vida; set => vida = value; }
+    public int Daño { get => daño; set => daño = value; }
 
     [Header("OBJETIVO DE ATAQUE")]
     [SerializeField] protected string tagObjetivoDeAtaque;
@@ -16,7 +19,7 @@ public abstract class VidaYAtaque : MonoBehaviour
     //ATAQUE
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(tagObjetivoDeAtaque))
+        if (collision.gameObject.CompareTag(tagObjetivoDeAtaque) && collision.gameObject.GetComponent<IRecibirDaño>() != null)
             collision.gameObject.GetComponent<IRecibirDaño>().TomarDaño(daño);
     }
 }

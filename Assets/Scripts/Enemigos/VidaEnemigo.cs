@@ -14,9 +14,9 @@ public class VidaEnemigo : VidaYAtaque, IRecibirDaño
 
     public void TomarDaño(int daño)
     {
-        vida -= daño;
+        Vida -= daño;
 
-        if (vida <= 0)
+        if (Vida <= 0)
         {
             numeroAleatorioRecolectable = Random.Range(0, recolectable.Length);
             recolectableRandom = recolectable[numeroAleatorioRecolectable];

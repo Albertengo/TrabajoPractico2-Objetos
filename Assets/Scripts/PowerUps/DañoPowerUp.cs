@@ -7,8 +7,8 @@ public class DañoPowerUp : PowerUp
     protected override void aplicar()
     {
         if (efectoActivado == true)
-            jugador.GetComponent<VidaJugador>().daño += valorAgregado;
+            jugador.GetComponent<VidaJugador>().Daño += valorAgregado;
         else
-            jugador.GetComponent<VidaJugador>().daño -= valorAgregado;
+            jugador.GetComponent<VidaJugador>().Daño -= valorAgregado;
     }
 }

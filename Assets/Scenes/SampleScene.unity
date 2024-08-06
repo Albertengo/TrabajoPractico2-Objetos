@@ -4180,7 +4180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b174f332a4be3bc4ba3304bf9eaafdda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 0
+  vida: 2
   "da\xF1o": 1
   tagObjetivoDeAtaque: Jugador
   recolectable:
@@ -5001,7 +5001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b174f332a4be3bc4ba3304bf9eaafdda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 0
+  vida: 10
   "da\xF1o": 0
   tagObjetivoDeAtaque: Jugador
   recolectable:
@@ -5568,7 +5568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b174f332a4be3bc4ba3304bf9eaafdda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 0
+  vida: 3
   "da\xF1o": 1
   tagObjetivoDeAtaque: Jugador
   recolectable:
