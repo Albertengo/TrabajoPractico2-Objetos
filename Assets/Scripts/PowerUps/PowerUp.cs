@@ -5,6 +5,7 @@ using UnityEngine;
 
 public abstract class PowerUp : MonoBehaviour
 {
+    [SerializeField] protected float duracionDeEfecto;
     [SerializeField] protected GameObject jugador;
     [SerializeField] protected int valorAgregado;
     [SerializeField] public bool efectoActivado;
@@ -34,12 +35,12 @@ public abstract class PowerUp : MonoBehaviour
     }
     
 
-    protected IEnumerator temporizadorPowerUp()
+    protected IEnumerator DuracionDePowerUp()
     {
         efectoActivado = true;
         aplicar();
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(duracionDeEfecto);
 
        efectoActivado = false;
        aplicar();
@@ -58,7 +59,7 @@ public abstract class PowerUp : MonoBehaviour
             particulas.Play();
             audio.Play();
 
-            StartCoroutine("temporizadorPowerUp");
+            StartCoroutine("DuracionDePowerUp");
         }
     }
 }

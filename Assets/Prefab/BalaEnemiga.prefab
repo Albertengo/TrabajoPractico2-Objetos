@@ -129,7 +129,9 @@ MonoBehaviour:
   vida: 1
   "da\xF1o": 1
   tagObjetivoDeAtaque: Jugador
+  animator: {fileID: 0}
   velocidadDeProyectil: 2.5
+  nombreDePersonaje: Jefe
 --- !u!58 &5633318142951653156
 CircleCollider2D:
   m_ObjectHideFlags: 0

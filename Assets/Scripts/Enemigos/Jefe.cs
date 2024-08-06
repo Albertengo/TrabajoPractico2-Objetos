@@ -16,9 +16,11 @@ public class Jefe : Enemy
             Vector2 direccionDeDisparo = jugador.position - transform.position;
 
             agente.SetDestination(transform.position);
-            gameObject.GetComponent<DisparoJefe>().DisparoDeJefe(direccionDeDisparo);
+            gameObject.GetComponent<DisparoJefe>().DisparoBasico(direccionDeDisparo); 
         } 
         else
             Perseguir();
     }
+
+
 }

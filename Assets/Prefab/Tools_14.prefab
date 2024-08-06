@@ -172,6 +172,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 1
-  "da\xF1o": 2
+  "da\xF1o": 0
   tagObjetivoDeAtaque: Enemigo
+  animator: {fileID: 0}
   velocidadDeProyectil: 5
+  nombreDePersonaje: Player
