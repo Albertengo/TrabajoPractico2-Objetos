@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DisparoJefe : Disparo
 {
-    private int tipoDeDisparo;
+    //private int tipoDeDisparo;
 
     
     public void DisparoBasico(Vector2 direccionDeDisparo)
@@ -13,6 +13,7 @@ public class DisparoJefe : Disparo
             StartCoroutine(TiempoParaDisparar(direccionDeDisparo));
     }
 
+    /*
     private void DisparoDoble()
     {
         //por cada punto de spawn  dentro de un arreglo, ejecutar un disparo
@@ -44,4 +45,5 @@ public class DisparoJefe : Disparo
         }
 
     }
+    */
 }

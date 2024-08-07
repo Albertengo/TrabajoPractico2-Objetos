@@ -6,21 +6,16 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Jefe : Enemy
 {
-    [SerializeField] private float rotateSpeed = 0.1f;
-
-
-    new void Update()
+    protected override void Movimiento()
     {
         if (Vector2.Distance(jugador.position, transform.position) <= rangoDeDeteccion)
         {
             Vector2 direccionDeDisparo = jugador.position - transform.position;
 
             agente.SetDestination(transform.position);
-            gameObject.GetComponent<DisparoJefe>().DisparoBasico(direccionDeDisparo); 
-        } 
+            gameObject.GetComponent<DisparoJefe>().DisparoBasico(direccionDeDisparo);
+        }
         else
             Perseguir();
     }
-
-
 }

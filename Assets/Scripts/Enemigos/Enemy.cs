@@ -10,7 +10,9 @@ public abstract class Enemy : MonoBehaviour
 
     [SerializeField] protected float rangoDeDeteccion;
 
-    [Header("Patrullaje")]
+    private bool mirandoALaDerecha;
+
+    [Header("PATRULLAJE")]
     [SerializeField] protected Transform[] puntosDeMovimiento;
     [SerializeField] protected float distaciaMinima;
     [HideInInspector] protected int numeroAleatorio;
@@ -39,7 +41,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Movimiento()
     {
-        if (Vector2.Distance(jugador.position, transform.position) < rangoDeDeteccion && jugador != null)
+        if (Vector2.Distance(jugador.position, transform.position) < rangoDeDeteccion && jugador != null) { }
             Perseguir();
     }
 
@@ -47,14 +49,12 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void Perseguir()
     {
         agente.SetDestination(jugador.position);
+        MirarObjetivo(jugador);
     }
-
 
 
     protected virtual void Patrullaje()
     {
-        //script para girar el sprite del enemigo
-
         if (Vector2.Distance(jugador.position, transform.position) > rangoDeDeteccion)
         {
             agente.SetDestination(puntosDeMovimiento[numeroAleatorio].position);
@@ -62,5 +62,16 @@ public abstract class Enemy : MonoBehaviour
             if (Vector2.Distance(transform.position, puntosDeMovimiento[numeroAleatorio].position) <= distaciaMinima)
                 numeroAleatorio = Random.Range(0, puntosDeMovimiento.Length);
         }
-    }              
+    }
+
+
+    private void MirarObjetivo(Transform objetivo)
+    {
+        if (objetivo.position.x > transform.position.x && mirandoALaDerecha || objetivo.position.x < transform.position.x && !mirandoALaDerecha)
+        {
+            mirandoALaDerecha = !mirandoALaDerecha;
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + 180, 0);
+        }
+    }
+
 }

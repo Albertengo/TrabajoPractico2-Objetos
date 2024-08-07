@@ -11,7 +11,7 @@ namespace Jugador
 
         [Header("Referencias")]
         [SerializeField] protected Animator animator;
-        [SerializeField] public float velocidad;
+        [SerializeField] public int velocidad;
 
         #endregion
 

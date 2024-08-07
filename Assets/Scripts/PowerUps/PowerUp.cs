@@ -20,20 +20,26 @@ public abstract class PowerUp : MonoBehaviour
     protected void Start()
     {
         jugador = GameObject.FindGameObjectWithTag("Jugador");
+        efectoActivado = true;
     }
 
 
     protected abstract void aplicar();
 
-    
-    protected virtual void aplicarpowerup2(float atributo, int ValorAgregado, bool estadoDeEfecto)
+
+    /*
+    protected void aplicarpowerup2(int atributo, int ValorAgregado)
     {
-        if (estadoDeEfecto == true)
+        if (efectoActivado == true)
+        {
             atributo += ValorAgregado;
+
+            Debug.Log("Valor de atributo: " +  atributo);   
+        }
         else
             atributo -= ValorAgregado;
     }
-    
+    */
 
     protected IEnumerator DuracionDePowerUp()
     {

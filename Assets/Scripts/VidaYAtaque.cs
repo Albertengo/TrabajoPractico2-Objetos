@@ -10,7 +10,6 @@ public abstract class VidaYAtaque : MonoBehaviour
     public int Vida { get => vida; set => vida = value; }
     public int Daño { get => daño; set => daño = value; }
 
-
     [Header("OBJETIVO DE ATAQUE")]
     [SerializeField] protected string tagObjetivoDeAtaque;
 

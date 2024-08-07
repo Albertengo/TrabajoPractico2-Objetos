@@ -12,9 +12,14 @@ public class VidaJugador : VidaYAtaque, IRecibirDaño
         {
             Vida -= daño;
             gameManager.CambiarCorazon(Vida);
+
+
             //Animacion de recibir daño
         }
         else
+        {
+            //gameManager.CambiarEscena(3);
             Debug.Log("MORISTE!!!!!!!!!!!!!!!"); // ACTIVAR PANTALLA DE DERROTA
+        }
     }
 }

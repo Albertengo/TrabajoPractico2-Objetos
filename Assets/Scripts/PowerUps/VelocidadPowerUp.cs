@@ -9,13 +9,13 @@ public class VelocidadPowerUp : PowerUp
     {
 
         
-        base.aplicarpowerup2(jugador.GetComponent<JugadorMov>().velocidad, valorAgregado, efectoActivado);
+        //aplicarpowerup2(jugador.GetComponent<JugadorMov>().velocidad, valorAgregado);
 
-        /*
+        
         if (efectoActivado == true)
-            jugador.GetComponent<MovController>().velocidad += valorAgregado;
+            jugador.GetComponent<JugadorMov>().velocidad += valorAgregado;
         else
-            jugador.GetComponent<MovController>().velocidad -= valorAgregado;  
-        */
+            jugador.GetComponent<JugadorMov>().velocidad -= valorAgregado;  
+        
     }
 }
