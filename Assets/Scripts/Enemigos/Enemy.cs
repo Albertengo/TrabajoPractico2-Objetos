@@ -41,7 +41,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Movimiento()
     {
-        if (Vector2.Distance(jugador.position, transform.position) < rangoDeDeteccion && jugador != null) { }
+        if (Vector2.Distance(jugador.position, transform.position) <= rangoDeDeteccion && jugador != null) { }
             Perseguir();
     }
 

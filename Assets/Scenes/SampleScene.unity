@@ -10060,10 +10060,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gallina
       objectReference: {fileID: 0}
-    - target: {fileID: 5204354759713146039, guid: 53a3692d1809b2e4494c06fc2a900a87, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7098345257771693987, guid: 53a3692d1809b2e4494c06fc2a900a87, type: 3}
       propertyPath: puntosDeMovimiento.Array.data[0]
       value: 
@@ -10132,10 +10128,6 @@ PrefabInstance:
     - target: {fileID: 6665491723455648747, guid: 5b64cb7857ec656478abe12b65c6f279, type: 3}
       propertyPath: m_Name
       value: Vaca
-      objectReference: {fileID: 0}
-    - target: {fileID: 6665491723455648747, guid: 5b64cb7857ec656478abe12b65c6f279, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
