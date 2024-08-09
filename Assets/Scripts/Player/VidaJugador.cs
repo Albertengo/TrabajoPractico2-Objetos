@@ -31,7 +31,7 @@ public class VidaJugador : VidaYAtaque, IRecibirDaño
     {
         puedeRecibirDaño = false;
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         puedeRecibirDaño = true;
     }
