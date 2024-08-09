@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
         imagenCorazon.sprite = corazonDesactivado;
     }
 
-
     public void CambiarEscena(int escena)
     {
         SceneManager.LoadScene(escena);

@@ -6,16 +6,13 @@ public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] protected Transform jugador;
 
+    [SerializeField] protected Animator animator;
+
     [SerializeField] protected NavMeshAgent agente;
 
     [SerializeField] protected float rangoDeDeteccion;
 
     private bool mirandoALaDerecha;
-
-    [Header("PATRULLAJE")]
-    [SerializeField] protected Transform[] puntosDeMovimiento;
-    [SerializeField] protected float distaciaMinima;
-    [HideInInspector] protected int numeroAleatorio;
 
 
 
@@ -27,9 +24,6 @@ public abstract class Enemy : MonoBehaviour
         agente.updateUpAxis = false;
 
         jugador = GameObject.FindGameObjectWithTag("Jugador").transform;
-
-        // PANTRULLAJE //
-        numeroAleatorio = Random.Range(0, puntosDeMovimiento.Length);
     }
 
 
@@ -39,29 +33,14 @@ public abstract class Enemy : MonoBehaviour
     }
 
 
-    protected virtual void Movimiento()
+
+    protected abstract void Movimiento();
+
+
+    protected virtual void Perseguir(Transform objetivo)
     {
-        if (Vector2.Distance(jugador.position, transform.position) <= rangoDeDeteccion && jugador != null) { }
-            Perseguir();
-    }
-
-
-    protected virtual void Perseguir()
-    {
-        agente.SetDestination(jugador.position);
-        MirarObjetivo(jugador);
-    }
-
-
-    protected virtual void Patrullaje()
-    {
-        if (Vector2.Distance(jugador.position, transform.position) > rangoDeDeteccion)
-        {
-            agente.SetDestination(puntosDeMovimiento[numeroAleatorio].position);
-
-            if (Vector2.Distance(transform.position, puntosDeMovimiento[numeroAleatorio].position) <= distaciaMinima)
-                numeroAleatorio = Random.Range(0, puntosDeMovimiento.Length);
-        }
+        agente.SetDestination(objetivo.position);
+        MirarObjetivo(objetivo);
     }
 
 
@@ -73,5 +52,4 @@ public abstract class Enemy : MonoBehaviour
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + 180, 0);
         }
     }
-
 }

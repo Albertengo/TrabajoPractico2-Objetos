@@ -17,6 +17,7 @@ public abstract class VidaYAtaque : MonoBehaviour
     [SerializeField] protected Animator animator;
 
 
+
     //ATAQUE
     protected void OnTriggerEnter2D(Collider2D collision)
     {

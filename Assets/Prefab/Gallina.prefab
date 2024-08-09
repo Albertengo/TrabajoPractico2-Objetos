@@ -100,7 +100,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.1
   m_Speed: 5
-  m_Acceleration: 15
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -149,6 +149,9 @@ MonoBehaviour:
   animator: {fileID: 1970692612936351627}
   recolectable:
   - {fileID: 5556870827314335774, guid: dc52a65b9d70312428af75e3a7a8fd51, type: 3}
+  - {fileID: 834100930877247374, guid: 534d3fc3d9126a34498356185c7861a4, type: 3}
+  - {fileID: 4561822530552691003, guid: 17736de4d65a173408b1267ee7cc28ce, type: 3}
+  - {fileID: 4561822530552691003, guid: 17736de4d65a173408b1267ee7cc28ce, type: 3}
   - {fileID: 4561822530552691003, guid: 17736de4d65a173408b1267ee7cc28ce, type: 3}
 --- !u!95 &1970692612936351627
 Animator:

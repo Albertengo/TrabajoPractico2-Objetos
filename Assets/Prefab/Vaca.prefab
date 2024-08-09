@@ -147,10 +147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jugador: {fileID: 0}
+  animator: {fileID: 4497662915930200390}
   agente: {fileID: 4666281530934257610}
   rangoDeDeteccion: 5
-  puntosDeMovimiento: []
-  distaciaMinima: 0
 --- !u!195 &4666281530934257610
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -191,6 +190,9 @@ MonoBehaviour:
   animator: {fileID: 4497662915930200390}
   recolectable:
   - {fileID: 5556870827314335774, guid: dc52a65b9d70312428af75e3a7a8fd51, type: 3}
+  - {fileID: 834100930877247374, guid: 534d3fc3d9126a34498356185c7861a4, type: 3}
+  - {fileID: 4561822530552691003, guid: 17736de4d65a173408b1267ee7cc28ce, type: 3}
+  - {fileID: 4561822530552691003, guid: 17736de4d65a173408b1267ee7cc28ce, type: 3}
   - {fileID: 4561822530552691003, guid: 17736de4d65a173408b1267ee7cc28ce, type: 3}
 --- !u!95 &4497662915930200390
 Animator:

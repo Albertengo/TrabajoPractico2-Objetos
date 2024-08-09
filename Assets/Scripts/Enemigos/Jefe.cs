@@ -12,10 +12,14 @@ public class Jefe : Enemy
         {
             Vector2 direccionDeDisparo = jugador.position - transform.position;
 
+            animator.SetBool("Caminando", false);
             agente.SetDestination(transform.position);
             gameObject.GetComponent<DisparoJefe>().DisparoBasico(direccionDeDisparo);
         }
         else
-            Perseguir();
+        {
+            Perseguir(jugador);
+            animator.SetBool("Caminando", true);
+        }
     }
 }

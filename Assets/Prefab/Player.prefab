@@ -240,7 +240,8 @@ MonoBehaviour:
   vida: 5
   "da\xF1o": 1
   tagObjetivoDeAtaque: SinTag
-  animator: {fileID: 0}
+  animator: {fileID: 8173322396738009599}
+  audio: {fileID: 0}
   gameManager: {fileID: 0}
 --- !u!95 &8173322396738009599
 Animator:

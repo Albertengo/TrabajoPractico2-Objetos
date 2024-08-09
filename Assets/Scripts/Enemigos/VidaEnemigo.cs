@@ -14,7 +14,7 @@ public class VidaEnemigo : VidaYAtaque, IRecibirDaño
 
     public void TomarDaño(int daño)
     {
-        Vida -= daño;
+        Vida -= Daño;
         animator.SetTrigger("RecibiendoDaño");
 
 
