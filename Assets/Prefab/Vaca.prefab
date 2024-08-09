@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 20472818348917778}
   - component: {fileID: 5144524441561301742}
   - component: {fileID: 4666281530934257610}
-  - component: {fileID: 4497662915930200390}
   - component: {fileID: 7551314649698984270}
+  - component: {fileID: 4497662915930200390}
   m_Layer: 0
   m_Name: Vaca
   m_TagString: Enemigo
@@ -173,6 +173,25 @@ NavMeshAgent:
   m_BaseOffset: 0.71133333
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7551314649698984270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6665491723455648747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b174f332a4be3bc4ba3304bf9eaafdda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vida: 3
+  "da\xF1o": 1
+  tagObjetivoDeAtaque: Jugador
+  animator: {fileID: 4497662915930200390}
+  recolectable:
+  - {fileID: 5556870827314335774, guid: dc52a65b9d70312428af75e3a7a8fd51, type: 3}
+  - {fileID: 4561822530552691003, guid: 17736de4d65a173408b1267ee7cc28ce, type: 3}
 --- !u!95 &4497662915930200390
 Animator:
   serializedVersion: 5
@@ -194,22 +213,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7551314649698984270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6665491723455648747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b174f332a4be3bc4ba3304bf9eaafdda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vida: 3
-  "da\xF1o": 1
-  tagObjetivoDeAtaque: Jugador
-  animator: {fileID: 0}
-  recolectable:
-  - {fileID: 5556870827314335774, guid: dc52a65b9d70312428af75e3a7a8fd51, type: 3}
-  - {fileID: 4561822530552691003, guid: 17736de4d65a173408b1267ee7cc28ce, type: 3}

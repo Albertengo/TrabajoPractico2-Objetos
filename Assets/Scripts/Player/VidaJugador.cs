@@ -5,7 +5,9 @@ using UnityEngine;
 public class VidaJugador : VidaYAtaque, IRecibirDaño
 {
     public GameManager gameManager;
+
     private bool puedeRecibirDaño = true;
+
 
 
     public void TomarDaño(int daño)
@@ -17,14 +19,13 @@ public class VidaJugador : VidaYAtaque, IRecibirDaño
                 Vida -= daño;
                 StartCoroutine(Inmunidad());
                 gameManager.CambiarCorazon(Vida);
-           }
+                animator.SetTrigger("RecibiendoDaño");
+            }
         }
         else
-        {
-            //gameManager.CambiarEscena(3);
-            Debug.Log("MORISTE!!!!!!!!!!!!!!!"); // ACTIVAR PANTALLA DE DERROTA
-        }
+            gameManager.CambiarEscena(4);
     }
+
 
     IEnumerator Inmunidad()
     {

@@ -14,7 +14,7 @@ public abstract class VidaYAtaque : MonoBehaviour
     [SerializeField] protected string tagObjetivoDeAtaque;
 
     [Header("OTROS")]
-    [SerializeField] Animator animator;
+    [SerializeField] protected Animator animator;
 
 
     //ATAQUE

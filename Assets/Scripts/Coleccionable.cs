@@ -8,7 +8,9 @@ public class Coleccionable : MonoBehaviour
     public static event Action<int> Punto;
 
     [SerializeField] int ValorDePunto;
+
     [SerializeField] AudioSource audio;
+    [SerializeField] ParticleSystem particulas;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,6 +20,7 @@ public class Coleccionable : MonoBehaviour
             Punto?.Invoke(ValorDePunto);
 
             //audio.Play();
+            particulas.Play();
             Destroy(gameObject, 0.3f);
         }
     }

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 479976764447895885}
   - component: {fileID: 5412726155375983904}
   - component: {fileID: 7098345257771693987}
+  - component: {fileID: 7379909397237874142}
   - component: {fileID: 1970692612936351627}
   - component: {fileID: 8279425663070453334}
-  - component: {fileID: 7379909397237874142}
   m_Layer: 0
   m_Name: Gallina
   m_TagString: Enemigo
@@ -131,6 +131,25 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   distaciaMinima: 0.5
+--- !u!114 &7379909397237874142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5204354759713146039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b174f332a4be3bc4ba3304bf9eaafdda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vida: 2
+  "da\xF1o": 1
+  tagObjetivoDeAtaque: Jugador
+  animator: {fileID: 1970692612936351627}
+  recolectable:
+  - {fileID: 5556870827314335774, guid: dc52a65b9d70312428af75e3a7a8fd51, type: 3}
+  - {fileID: 4561822530552691003, guid: 17736de4d65a173408b1267ee7cc28ce, type: 3}
 --- !u!95 &1970692612936351627
 Animator:
   serializedVersion: 5
@@ -197,22 +216,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.11, y: 0.12}
   m_EdgeRadius: 0
---- !u!114 &7379909397237874142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5204354759713146039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b174f332a4be3bc4ba3304bf9eaafdda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vida: 2
-  "da\xF1o": 1
-  tagObjetivoDeAtaque: Jugador
-  animator: {fileID: 0}
-  recolectable:
-  - {fileID: 5556870827314335774, guid: dc52a65b9d70312428af75e3a7a8fd51, type: 3}
-  - {fileID: 4561822530552691003, guid: 17736de4d65a173408b1267ee7cc28ce, type: 3}

@@ -27,20 +27,6 @@ public abstract class PowerUp : MonoBehaviour
     protected abstract void aplicar();
 
 
-    /*
-    protected void aplicarpowerup2(int atributo, int ValorAgregado)
-    {
-        if (efectoActivado == true)
-        {
-            atributo += ValorAgregado;
-
-            Debug.Log("Valor de atributo: " +  atributo);   
-        }
-        else
-            atributo -= ValorAgregado;
-    }
-    */
-
     protected IEnumerator DuracionDePowerUp()
     {
         efectoActivado = true;
