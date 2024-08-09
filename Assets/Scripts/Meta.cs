@@ -11,7 +11,7 @@ public class Meta : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Jugador"))
-            gameManager.CambiarEscena(3);
+            gameManager.CambiarEscena(numeroDeEscena);
     }
 
 

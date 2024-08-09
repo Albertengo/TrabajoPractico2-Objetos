@@ -8624,8 +8624,8 @@ EdgeCollider2D:
   - {x: 1.9952683, y: -1.2331601}
   - {x: 1.9992652, y: -1.8963736}
   - {x: 1.915963, y: -1.8927045}
-  - {x: 1.9292703, y: -2.495312}
-  - {x: 1.72202, y: -2.4923038}
+  - {x: 1.9011151, y: -2.2316787}
+  - {x: 1.7322582, y: -2.2312298}
   - {x: 1.7217203, y: -1.894169}
   - {x: 1.087095, y: -1.8819506}
   - {x: 1.114389, y: -1.8205553}
@@ -11664,6 +11664,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1318749251}
+    - target: {fileID: 3540305047262094165, guid: 7a81dc590aa2dfc45879864ceb313cbb, type: 3}
+      propertyPath: numeroDeEscena
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7367366107274066917, guid: 7a81dc590aa2dfc45879864ceb313cbb, type: 3}
       propertyPath: m_Name
       value: META
@@ -11674,7 +11678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729831370125333356, guid: 7a81dc590aa2dfc45879864ceb313cbb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -24.31
+      value: -22.01
       objectReference: {fileID: 0}
     - target: {fileID: 7729831370125333356, guid: 7a81dc590aa2dfc45879864ceb313cbb, type: 3}
       propertyPath: m_LocalPosition.z
